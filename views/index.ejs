@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="menu">
+    <li><a href="/">Today</a></li>
+    <li><a href="/work">work</a></li>
+</ul>
+
+    <h2><%= whatnow %></h2>
+    <div class="main">
+    
+     <div>  
+    <ul id="list-container">
+        
+        <% for (let i = 0; i < Listnewitem.length; i++) { %>
+        <li class="member"><div class="checkbox-wrapper-5">
+            <div class="check">
+              <input id="check-5" type="checkbox">
+              <label for="check-5"></label>
+            </div>
+            </div><label class="labe" for="check-5"><%= Listnewitem[i] %></label></li>
+        <% } %>
+        
+    </ul>
+</div> 
+    
+    <div>
+        <form action="/"  method="post">
+            <div class="user-box"><input type="text" placeholder="Add New" id="input-box" autocomplete="off" name="todo" >
+            
+            
+            <button class="sub" type="submit">Add</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
