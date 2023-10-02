@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/style.css">
-    <title>Document</title>
+   
+    <link rel = "icon" href="/icons8-to-do-16.png" type = "image/x-icon">
+    <title style="text-transform: capitalize">Miren</title>
 </head>
 <body>
     <ul class="menu">
@@ -17,25 +19,38 @@
     
      <div>  
     <ul id="list-container">
+        <% (Listnewitem).forEach((items) => { %>
+        <% //for (let i = 0; i < Listnewitem.length; i++) { %>
+            
+        <li  class="member">
+            
+            <label class="toggler-wrapper style-8">
+                <input type="checkbox" >
+                <div class="toggler-slider">
+                  <div class="toggler-knob"></div>
+                </div>
+                
+              </label>
+              <%=items.name%>
+              <% //Listnewitem[i].name %>
+            <!--<label class="labe" for="check-5"><input type="checkbox"><%// Listnewitem[i].name %></label>-->
+            <form action="/delete" method="post" >
+                <input type="text" name="listyname" value="<%=listname%>" id="nonedisplay" style="display: none;">
+                <button  id="select" name="delete" value=<%= items._id %> class="noselect"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+            </form>
+        </li>
         
-        <% for (let i = 0; i < Listnewitem.length; i++) { %>
-        <li class="member"><div class="checkbox-wrapper-5">
-            <div class="check">
-              <input id="check-5" type="checkbox">
-              <label for="check-5"></label>
-            </div>
-            </div><label class="labe" for="check-5"><%= Listnewitem[i] %></label></li>
-        <% } %>
+        
+        <% }) %>
         
     </ul>
 </div> 
     
     <div>
         <form action="/"  method="post">
+            <input id="number" type="number" value="" name="numid">
             <div class="user-box"><input type="text" placeholder="Add New" id="input-box" autocomplete="off" name="todo" >
-            
-            
-            <button class="sub" type="submit">Add</button>
+            <button class="sub" name="listname" value="<%=listname%>" type="submit">Add</button>
         </form>
     </div>
 </div>
